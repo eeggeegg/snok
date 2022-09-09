@@ -1,0 +1,8 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl stoneDark(Clone)
+Kd 0.4033286 0.3896849 0.5943396
+
+newmtl stoneLight(Clone)
+Kd 0.7102468 0.7010057 0.8396226
+
