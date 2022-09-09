@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Enemy/Enemy.gd" type="Script" id=1]
 
@@ -14,6 +14,38 @@ mid_height = 2.0
 radius = 0.509039
 height = 2.14924
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:cast_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -50 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "ray_move"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:cast_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 20, 0, -50 ), Vector3( -20, 0, -50 ) ]
+}
+
 [node name="Enemy" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50616, 0 )
 script = ExtResource( 1 )
@@ -28,7 +60,27 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.831701, -0.679124 )
+light_color = Color( 1, 0, 0, 1 )
+shadow_enabled = true
+spot_range = 6.73737
+spot_angle = 60.952
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838255, -0.707463 )
+enabled = true
+cast_to = Vector3( 0, 0, -50 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RayCast"]
+anims/RESET = SubResource( 4 )
+anims/ray_move = SubResource( 5 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

@@ -7,7 +7,7 @@ var velocity = Vector3()
 
 var gravity = -30
 var max_speed = 8
-var mouse_sensitivity = 0.002
+var mouse_sensitivity = 0.006
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

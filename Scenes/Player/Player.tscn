@@ -10,7 +10,7 @@ mid_height = 2.0
 radius = 0.5
 height = 2.0
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["player"]]
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -25,6 +25,7 @@ current = true
 
 [node name="SpotLight" type="SpotLight" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.69477 )
+light_energy = 0.3
 spot_range = 11.7865
 spot_angle = 38.3401
 
