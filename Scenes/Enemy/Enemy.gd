@@ -4,7 +4,7 @@ extends KinematicBody
 var path = []
 var path_node = 0
 
-var speed = 5
+var speed = 9
 
 onready var player = get_parent().get_node("Player")
 onready var nav = get_parent()
@@ -24,7 +24,7 @@ func _physics_process(delta):
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
 
 func move_to(target_pos):
-	path = nav.get_simple_path(global_transform.origin, target_pos)
+	path = NavigationServer.map_get_path(nav, global_transform.origin, target_pos, false, 1)
 	path_node = 0
 
 
