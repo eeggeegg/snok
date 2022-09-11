@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/THEBOLDFONT.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Goal.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=5]
+size = 62
+font_data = ExtResource( 1 )
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.5, 0.2, 1.5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color( 0.996078, 1, 0.713726, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.368715, 0.648045, 1 )
+colors = PoolColorArray( 0.313726, 0.286275, 0.2, 0, 0.828125, 0.759233, 0.524048, 1, 0.808594, 0.747347, 0.347443, 1, 0.921569, 0.894118, 0.729412, 0 )
+
+[node name="Goal" type="Area"]
+script = ExtResource( 2 )
+
+[node name="status" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60513, 0 )
+billboard = 1
+text = "ESCAPE"
+font = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+amount = 66
+mesh = SubResource( 3 )
+emission_shape = 2
+emission_box_extents = Vector3( 1.5, 0.2, 1.5 )
+gravity = Vector3( 0, -0.2, 0 )
+scale_amount = 0.05
+color_ramp = SubResource( 4 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_goal"]
+[connection signal="body_shape_exited" from="." to="." method="_on_Goal_body_shape_exited"]

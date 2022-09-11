@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://Models/Mesh-Library/mesh-library.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://Scenes/SafeWall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Models/Food/burgerCheeseDouble.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=7]
+
+[sub_resource type="NavigationMesh" id=6]
+vertices = PoolVector3Array( -1.5, 2, 3.75, 0.5, 2, 3.75, 0.75, 2, 1.5, -1.5, 2, -1.5, 0.75, 2, 1.5, 9.5, 2, 1.5, 9.5, 2, -1.5, -1.5, 2, -1.5, 0.75, 2, 7.5, 0.5, 2, 3.75, -1.5, 2, 3.75, -1.5, 2, 10.5, 9.5, 2, 10.5, 9.5, 2, 7.5, 0.75, 2, 7.5, -1.5, 2, 10.5 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ) ]
+agent_height = 2.0
+
+[sub_resource type="PhysicsMaterial" id=5]
+
+[node name="sample" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5.06452, 2.14975, 9.08191 )
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 6 )
+
+[node name="GridMap" type="GridMap" parent="Navigation/NavigationMeshInstance"]
+mesh_library = ExtResource( 2 )
+physics_material = SubResource( 5 )
+cell_size = Vector3( 1, 1, 1 )
+data = {
+"cells": PoolIntArray( 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 5, 7, 0, 5, 8, 0, 5, 9, 0, 5, 65534, 0, 5, 65535, 0, 5, 0, 1, 5, 1, 1, 5, 2, 1, 5, 3, 1, 5, 4, 1, 5, 5, 1, 5, 6, 1, 5, 7, 1, 5, 8, 1, 5, 9, 1, 5, 65534, 1, 5, 65535, 1, 5, 0, 2, 5, 65534, 2, 5, 65535, 2, 5, 0, 3, 5, 65534, 3, 5, 65535, 3, 5, 0, 4, 5, 65534, 4, 5, 65535, 4, 5, 0, 5, 5, 65534, 5, 5, 65535, 5, 5, 0, 6, 5, 65534, 6, 5, 65535, 6, 5, 0, 7, 5, 1, 7, 5, 2, 7, 5, 3, 7, 5, 4, 7, 5, 5, 7, 5, 6, 7, 5, 7, 7, 5, 8, 7, 5, 9, 7, 5, 65534, 7, 5, 65535, 7, 5, 0, 8, 5, 1, 8, 5, 2, 8, 5, 3, 8, 5, 4, 8, 5, 5, 8, 5, 6, 8, 5, 7, 8, 5, 8, 8, 5, 9, 8, 5, 65534, 8, 5, 65535, 8, 5, 0, 9, 5, 1, 9, 5, 2, 9, 5, 3, 9, 5, 4, 9, 5, 5, 9, 5, 6, 9, 5, 7, 9, 5, 8, 9, 5, 9, 9, 5, 65534, 9, 5, 65535, 9, 5, 0, 10, 5, 1, 10, 5, 2, 10, 5, 3, 10, 5, 4, 10, 5, 5, 10, 5, 6, 10, 5, 7, 10, 5, 8, 10, 5, 9, 10, 5, 65534, 10, 5, 65535, 10, 5, 0, 65534, 5, 1, 65534, 5, 2, 65534, 5, 3, 65534, 5, 4, 65534, 5, 5, 65534, 5, 6, 65534, 5, 7, 65534, 5, 8, 65534, 5, 9, 65534, 5, 65534, 65534, 5, 65535, 65534, 5, 0, 65535, 5, 1, 65535, 5, 2, 65535, 5, 3, 65535, 5, 4, 65535, 5, 5, 65535, 5, 6, 65535, 5, 7, 65535, 5, 8, 65535, 5, 9, 65535, 5, 65534, 65535, 5, 65535, 65535, 5 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( -3, 0, -16 )
+}
+
+[node name="Enemy2" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17232, 2.15958, 8.8126 )
+
+[node name="enemy_patrol_points" type="Node" parent="."]
+
+[node name="Position3D" type="Position3D" parent="enemy_patrol_points" groups=["move"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79974, 2.18681, -0.242852 )
+
+[node name="Position3D5" type="Position3D" parent="enemy_patrol_points" groups=["move"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.935679, 1.83625, 0.427947 )
+
+[node name="Steals" type="Node" parent="."]
+
+[node name="burger" type="Spatial" parent="Steals"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87741, 1.53424, -0.279296 )
+
+[node name="burgerCheeseDouble" parent="Steals/burger" instance=ExtResource( 6 )]
+
+[node name="OmniLight" type="SpotLight" parent="Steals/burger"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00839996, 2.86848, 0.0672989 )
+spot_angle = 21.52
+
+[node name="SafeWall" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.75616, 0, 0, 0, 1, 0, 0, 0, 1, 0.591694, 1.76095, 9.14528 )
+
+[node name="Goal" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26944, 1.86907, 9.26334 )

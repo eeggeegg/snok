@@ -3,7 +3,10 @@
 [sub_resource type="Environment" id=1]
 background_mode = 1
 background_energy = 0.0
+glow_enabled = true
 glow_intensity = 7.81
+glow_bloom = 0.03
+glow_blend_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource( 1 )
