@@ -10,15 +10,6 @@ func _ready():
 		steals.append(steal.name)
 	updateList()
 
-func webhook(text):
-	#var h = HTTPClient.new()
-	var headers = ["Content-Type: application/json"]
-	var data = {"content": text}
-	data = JSON.print(data)
-	var h = HTTPRequest.new()
-	add_child(h)
-	h.request("https://discord.com/api/webhooks/1017847778493349948/uflcxLc2K96C3atEMaDXigRAcFp9Y3_HqtRSIV7RzbrH2qh9v7o9JnYo9IGP7Thc4cp8", headers, true, HTTPClient.METHOD_POST, data)
-
 func updateList():
 	AudioServer.set_bus_send(3, "HighPitch")
 	get_node("Player/UI/List").text = ""

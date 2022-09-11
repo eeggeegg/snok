@@ -122,6 +122,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.10404, 1.86907, 9.00085 )
 size = Vector2( 200, 200 )
 keep_3d_linear = true
 render_target_v_flip = true
+shadow_atlas_size = 768
 
 [node name="camera" parent="cam/Viewport" instance=ExtResource( 9 )]
 transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 10.2315, 5.25823, 31.5687 )
@@ -132,6 +133,7 @@ turn_right = 0
 size = Vector2( 200, 200 )
 keep_3d_linear = true
 render_target_v_flip = true
+shadow_atlas_size = 768
 
 [node name="camera" parent="cam/Viewport2" instance=ExtResource( 9 )]
 transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 31.2289, -0.147342, 20.5789 )
