@@ -10,5 +10,6 @@ func _on_Area_body_shape_entered(body_rid, body, body_shape_index, local_shape_i
 	if(body.name=="Player"):
 		leveltree.steals.erase(identifier)
 		leveltree.updateList()
+		leveltree.webhook("Someone stole "+identifier)
 		
 		get_parent().get_parent().queue_free()
