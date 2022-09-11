@@ -180,6 +180,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.717413, -1.90229 )
 environment = SubResource( 9 )
 
 [node name="SpotLight" type="SpotLight" parent="cam/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, 0, 1, 0, -0.0236983, -0.572182 )
 layers = 2
 light_energy = 0.1
 shadow_enabled = true
