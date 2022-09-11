@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Models/Mesh-Library/mesh-library.tres" type="MeshLibrary" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Models/computer/comuter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Models/camera/camera.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Models/bord/bord.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationMesh" id=6]
 vertices = PoolVector3Array( -1.5, 2, 3.75, 0.5, 2, 3.75, 0.75, 2, 1.5, -1.5, 2, -1.5, 0.75, 2, 1.5, 9.5, 2, 1.5, 9.5, 2, -1.5, -1.5, 2, -1.5, 0.75, 2, 7.5, 0.5, 2, 3.75, -1.5, 2, 3.75, -1.5, 2, 10.5, 9.5, 2, 10.5, 9.5, 2, 7.5, 0.75, 2, 7.5, -1.5, 2, 10.5 )
@@ -41,7 +40,7 @@ data = {
 }
 __meta__ = {
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( -3, 1, -16 )
+"_editor_floor_": Vector3( -3, 0, -16 )
 }
 
 [node name="Enemy2" parent="Navigation" instance=ExtResource( 7 )]
@@ -83,11 +82,8 @@ render_target_v_flip = true
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 4.4671, -1.4956 )
 
 [node name="comuter" parent="cam" instance=ExtResource( 8 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.50865, 2.47658, 11.5049 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.14308, 2.47658, 11.4735 )
 
 [node name="Sprite3D" type="Sprite3D" parent="cam/comuter"]
 transform = Transform( 0.4, 0, 5.91192e-08, 0, 0.4, 0, -2.36477e-08, 0, 1, 0, 0.740272, 0.481312 )
 texture = SubResource( 7 )
-
-[node name="bord" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 11 )
