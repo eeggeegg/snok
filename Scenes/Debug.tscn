@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Debug" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="dbgmsg" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 95.0
+margin_right = 41.0
+margin_bottom = 109.0
+text = "debug"

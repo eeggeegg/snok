@@ -4,9 +4,9 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Models/Mesh-Library/mesh-library.tres" type="MeshLibrary" id=4]
-[ext_resource path="res://Models/Food/burgerCheeseDouble.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Models/Food/burgare.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=6]
-[ext_resource path="res://Models/Food/cheese.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Models/Food/ost.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/SafeWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=9]
 
@@ -80,12 +80,12 @@ spot_angle = 21.52
 [node name="burger" type="Spatial" parent="Steals"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5096, 4.52541, -21.0451 )
 
-[node name="burgerCheeseDouble" parent="Steals/burger" instance=ExtResource( 5 )]
+[node name="burgare" parent="Steals/burger" instance=ExtResource( 5 )]
 
 [node name="cheese" type="Spatial" parent="Steals"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839, 1.64891, -33.955 )
 
-[node name="cheese" parent="Steals/cheese" instance=ExtResource( 7 )]
+[node name="ost" parent="Steals/cheese" instance=ExtResource( 7 )]
 
 [node name="SafeWall" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1.75616, 0, 0, 0, 1, 0, 0, 0, 1, 0.591694, 1.76095, 3.99566 )

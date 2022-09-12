@@ -18,7 +18,16 @@ func _ready():
 func _physics_process(delta):
 	if path_node < path.size():
 		
-		var p;if(path.size()>path_node+2):p=transform.looking_at(path[path_node+2],Vector3.UP);else:p=transform.looking_at(path[path_node],Vector3.UP);global_rotation.y=Quat(global_transform.basis.orthonormalized()).normalized().slerp(Quat(p.basis.orthonormalized()).normalized(),10*delta).get_euler().y
+		var p;
+		if(path.size()>path_node+2):
+			p=transform.looking_at(path[path_node+2],Vector3.UP)
+		else:
+			p=transform.looking_at(path[path_node],Vector3.UP)
+			
+		var q = Quat(global_transform.basis.orthonormalized())
+		q.normalized()
+			
+		global_rotation.y = q.slerp(Quat(p.basis.orthonormalized()).normalized(),10*delta).get_euler().y
 
 		var direction = (path[path_node] - global_transform.origin)
 	
