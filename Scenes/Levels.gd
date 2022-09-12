@@ -23,4 +23,4 @@ func _ready():
 
 func playLevel(basse):
 	get_tree().change_scene("res://Scenes/Levels/level-"+basse+".tscn")
-	Debug.get_node("dbgmsg").text = basse
+	Debug.debugLog(basse)
