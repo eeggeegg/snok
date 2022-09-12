@@ -28,4 +28,3 @@ func webhook(text):
 	var headers = ["Content-Type: application/json"]
 	h.request("https://discord.com/api/webhooks/1017847778493349948/uflcxLc2K96C3atEMaDXigRAcFp9Y3_HqtRSIV7RzbrH2qh9v7o9JnYo9IGP7Thc4cp8", 
 	headers, true, HTTPClient.METHOD_POST, body)
-	#h.queue_free()
