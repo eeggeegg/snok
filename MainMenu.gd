@@ -3,4 +3,10 @@ extends Control
 
 
 func _on_Play_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Scenes/Levels.tscn")
+	
+	
+
+
+func _on_Exit_pressed():
+	get_tree().quit()
