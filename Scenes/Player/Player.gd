@@ -67,12 +67,6 @@ func get_input():
 		
 	if Input.is_action_pressed("move_right"):
 		input_dir += global_transform.basis.x
-	if Input.is_action_just_pressed("esc"):
-		match Input.mouse_mode:
-			Input.MOUSE_MODE_CAPTURED:
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			Input.MOUSE_MODE_VISIBLE:
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	input_dir = input_dir.normalized()
 	return input_dir
