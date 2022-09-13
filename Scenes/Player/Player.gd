@@ -7,7 +7,7 @@ var velocity = Vector3()
 
 var gravity = -30
 var max_speed = 8
-var dead=false
+export var dead=false
 var mouse_sensitivity = 0.006
 func die():
 	if(!dead):

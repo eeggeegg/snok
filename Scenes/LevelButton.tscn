@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Themes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/LevelButton.gd" type="Script" id=2]
+
+[node name="Button" type="Button"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
