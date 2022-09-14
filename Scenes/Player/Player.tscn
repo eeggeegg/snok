@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Audio/heartbeat-noreverb.wav" type="AudioStream" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Player/Pause.gd" type="Script" id=5]
 [ext_resource path="res://Fonts/Combo-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenes/Player/Win.gd" type="Script" id=7]
+[ext_resource path="res://Environment.tres" type="Environment" id=8]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.5
@@ -63,6 +64,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51606, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 cull_mask = 1048573
+environment = ExtResource( 8 )
 current = true
 
 [node name="SpotLight" type="SpotLight" parent="Head"]

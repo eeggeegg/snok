@@ -9,11 +9,11 @@ albedo_color = Color( 1, 0.215686, 0.215686, 1 )
 [sub_resource type="CapsuleMesh" id=2]
 material = SubResource( 1 )
 radius = 0.5
-mid_height = 2.0
+mid_height = 1.75
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 0.509039
-height = 2.14924
+height = 1.8
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -73,7 +73,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="DetectionTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.03
 one_shot = true
 
 [node name="SpotLight" type="SpotLight" parent="."]
@@ -97,7 +97,6 @@ anims/ray_move = SubResource( 5 )
 stream = ExtResource( 2 )
 max_db = 1.0
 autoplay = true
-bus = "Enemy"
 
 [node name="LookAt" type="RayCast" parent="."]
 cast_to = Vector3( 0, 0, -20 )

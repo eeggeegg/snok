@@ -10,7 +10,13 @@ onready var player = get_parent().get_parent().get_node("Player")
 onready var nav = get_parent()
 onready var pos = get_tree().get_nodes_in_group("move")
 
+var navgroup = ""
+
 func _ready():
+	for group in get_groups():
+		if "nav" in group:
+			navgroup = group
+	
 	pos.shuffle()
 	$RayCast/AnimationPlayer.play("ray_move")
 	pass
@@ -47,6 +53,10 @@ func _physics_process(delta):
 	
 	if $LookAt.is_colliding() == true:
 		if $LookAt.get_collider().is_in_group("player"):
+			#var distance = global_transform.origin.distance_to(player.global_transform.origin) 
+			#if distance < 5:
+				#print((5.0 / distance) / (10.0 / 3))
+				#player.get_node("UI/DetectionBar").value = ((5.0 / distance) / (10.0 / 3)) * 100
 			if($DetectionTimer.is_stopped()):
 				$DetectionTimer.start()
 	if $RayCast.is_colliding() == true:
@@ -61,21 +71,35 @@ func _physics_process(delta):
 			
 		else:$RayCast/AnimationPlayer.play("ray_move")
 	player.get_node("UI/DetectionBar").value -= 0.1
+	
+	
 func move_to(target_pos):
 	path = NavigationServer.map_get_path(nav, global_transform.origin, target_pos, false, 1)
 	path_node = 0
 func _on_DetectionTimer_timeout():
 	player.get_node("UI/DetectionBar").value += 5
+	pass
 
 func _on_MoveTimer_timeout():
 	#move_to(player.global_transform.origin)
 	if($AngerTimer.is_stopped()==true):
 		if pos != null:
-			
-			move_to(pos[0].global_transform.origin)
-			if path.size() <= 4:
-				if $IdleTimer.is_stopped() == true:
-					$IdleTimer.start()
+			if navgroup != "":
+				var check = false
+				while check == false:
+					if pos[0].is_in_group(navgroup):
+						move_to(pos[0].global_transform.origin)
+						if path.size() <= 4:
+							if $IdleTimer.is_stopped() == true:
+								$IdleTimer.start()
+						check = true
+					else:
+						pos.shuffle()
+			else:
+				move_to(pos[0].global_transform.origin)
+				if path.size() <= 4:
+					if $IdleTimer.is_stopped() == true:
+						$IdleTimer.start()
 	else:
 		move_to(player.global_transform.origin)
 

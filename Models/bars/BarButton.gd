@@ -8,6 +8,7 @@ export var bar: NodePath
 func _on_BarButton_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if(body.name=="Player"):
 		if(!pressed):
+			pressed = true
 			#0.1 -> 0.01
 			var pressTween = $PressTween
 			pressTween.interpolate_property($button, "translation:y", 0.1, 0.01, 0.5)
